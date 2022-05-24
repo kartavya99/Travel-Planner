@@ -15,11 +15,11 @@ const seedDatabase = async () => {
   for (let i = 0; i < 10; i++) {
     // get a random traveller's id
     const { id: randomTravellerId } =
-      travellers[Math.floor(Math.randon() * travellers.length)];
+      travellers[Math.floor(Math.random() * travellers.length)];
 
     // get a random locations's id
     const { id: randomLocationId } =
-      locations[Math.floor(Math.floor() * locations.length)];
+      locations[Math.floor(Math.random() * locations.length)];
 
     // creat a new trip with random `trip_budget ` and `traveller_amount ` values, but with ids selected above
     await Trip.create({
