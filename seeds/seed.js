@@ -9,12 +9,12 @@ const seedDatabase = async () => {
 
   const travellers = await Traveller.bulkCreate(travellerSeedData);
 
-  const Locations = await Location.bulkCreate(locationSeedData);
+  const locations = await Location.bulkCreate(locationSeedData);
 
   // creating random trips
   for (let i = 0; i < 10; i++) {
     // get a random traveller's id
-    const { id: randomTravellerID } =
+    const { id: randomTravellerId } =
       travellers[Math.floor(Math.randon() * travellers.length)];
 
     // get a random locations's id

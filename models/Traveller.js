@@ -2,7 +2,7 @@ const { Model, DataTYpes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 //Travel Model
-class Travel extends Model {}
+class Traveller extends Model {}
 
 // create fields/colums for Traveller model
 Traveller.init(
