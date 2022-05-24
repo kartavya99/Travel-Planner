@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// Location Model
-class Location extends Model {}
+// create Trip Model
+class Trip extends Model {}
 
-Location.init(
+Trip.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,9 +12,30 @@ Location.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    location_name: {
-      type: DataTypes.STRING,
+    trip_budger: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true,
+    },
+    traveller_amount: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 1,
+    },
+    traveller_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "traveller",
+        key: "id",
+        unique: false,
+      },
+    },
+    location_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "location",
+        key: "id",
+        unique: false,
+      },
     },
   },
   {
@@ -22,8 +43,8 @@ Location.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "location",
+    modelNameL: "trip",
   }
 );
 
-module.exports = Location;
+module.exports = Trip;
